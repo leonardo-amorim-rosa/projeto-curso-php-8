@@ -9,6 +9,22 @@ namespace sistema\Nucleo;
 class Helpers
 {
     /**
+     * Redireciona para uma rota específica
+     * @param string $url - a rota a ser redirecionada
+     * @return void
+     */
+    public static function redirectTo(string $url = null): void
+    {
+        header("HTTP/1.1 302 Found");
+        
+        $local = ($url ? self::url($url) : self::url("/"));
+        
+        header("Location: {$local}");
+        
+        exit;
+    }
+    
+    /**
      * Valida CPF
      * @param string $cpf
      * @return bool
