@@ -1,6 +1,6 @@
 <?php
 
-namespace sistema\Nucleo;
+namespace sistema\Core;
 
 /**
  * Classe de métodos utilitários
@@ -21,7 +21,7 @@ class Helpers
         
         header("Location: {$local}");
         
-        exit;
+        exit();
     }
     
     /**

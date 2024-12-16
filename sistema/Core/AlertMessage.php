@@ -1,13 +1,13 @@
 <?php
 
-namespace sistema\Nucleo;
+namespace sistema\Core;
 
 /**
  * Classe de Mensagens do sistema
  *
  * @author leoam
  */
-class Mensagem
+class AlertMessage
 {
 
     private $texto;
@@ -18,10 +18,10 @@ class Mensagem
      * @param string $mensagem
      * @return Mensagem
      */
-    public function sucesso(string $mensagem): Mensagem
+    public function success(string $mensagem): Mensagem
     {
         $this->css = 'alert alert-success';
-        $this->texto = $this->filtrar($mensagem);
+        $this->texto = $this->filter($mensagem);
         return $this;
     }
 
@@ -30,10 +30,10 @@ class Mensagem
      * @param string $mensagem
      * @return Mensagem
      */    
-    public function erro(string $mensagem): Mensagem
+    public function error(string $mensagem): Mensagem
     {
         $this->css = 'alert alert-danger';
-        $this->texto = $this->filtrar($mensagem);
+        $this->texto = $this->filter($mensagem);
         return $this;
     }
 
@@ -42,10 +42,10 @@ class Mensagem
      * @param string $mensagem
      * @return Mensagem
      */    
-    public function alerta(string $mensagem): Mensagem
+    public function warning(string $mensagem): Mensagem
     {
         $this->css = 'alert alert-warning';
-        $this->texto = $this->filtrar($mensagem);
+        $this->texto = $this->filter($mensagem);
         return $this;
     }
 
@@ -54,10 +54,10 @@ class Mensagem
      * @param string $mensagem
      * @return Mensagem
      */    
-    public function informa(string $mensagem): Mensagem
+    public function info(string $mensagem): Mensagem
     {
         $this->css = 'alert alert-primary';
-        $this->texto = $this->filtrar($mensagem);
+        $this->texto = $this->filter($mensagem);
         return $this;
     }
 
@@ -65,7 +65,7 @@ class Mensagem
      * Rendereza o texto da mensagem
      * @return string
      */
-    public function renderizar(): string
+    public function render(): string
     {
         return "<div class='{$this->css}' role='alert'>{$this->texto}</div>";
     }
@@ -75,7 +75,7 @@ class Mensagem
      * @param string $mensagem
      * @return string
      */
-    private function filtrar(string $mensagem): string
+    private function filter(string $mensagem): string
     {
         return filter_var($mensagem, FILTER_SANITIZE_SPECIAL_CHARS);
     }
@@ -86,6 +86,6 @@ class Mensagem
      */
     public function __toString(): string
     {
-        return $this->renderizar();
+        return $this->render();
     }
 }

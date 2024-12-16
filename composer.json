@@ -7,7 +7,7 @@
             "sistema\\": "sistema/"
         },
         "files": [
-            "sistema/configuracao.php"
+            "sistema/config.php"
         ]
     },
     "authors": [

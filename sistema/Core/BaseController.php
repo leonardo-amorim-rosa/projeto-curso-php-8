@@ -1,6 +1,6 @@
 <?php
 
-namespace sistema\Nucleo;
+namespace sistema\Core;
 
 use sistema\Suporte\Template;
 
@@ -9,7 +9,7 @@ use sistema\Suporte\Template;
  *
  * @author leoam
  */
-class Controlador
+class BaseController
 {
     protected Template $template;
     

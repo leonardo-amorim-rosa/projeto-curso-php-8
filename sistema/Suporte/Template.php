@@ -3,7 +3,7 @@
 namespace sistema\Suporte;
 
 use Twig\Lexer;
-use sistema\Nucleo\Helpers;
+use sistema\Core\Helpers;
 
 /**
  * Description of Template
@@ -28,7 +28,7 @@ class Template
         $this->twig->setLexer($lexer);
     }
 
-    public function renderizar(string $view, array $dados): string
+    public function render(string $view, array $dados): string
     {
         return $this->twig->render($view, $dados);
     }
