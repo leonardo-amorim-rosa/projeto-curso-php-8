@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "52650a598c37605a36211cba97ac1c38",
+    "content-hash": "24ab98ce5444223076c6f9f63fa41b8d",
     "packages": [
         {
             "name": "pecee/simple-router",
@@ -382,12 +382,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "31f61bd781e839f007b3f176262bffdbb8e34587"
+                "reference": "918f52e818f7c56e90ec462ae90b230da244a7ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/31f61bd781e839f007b3f176262bffdbb8e34587",
-                "reference": "31f61bd781e839f007b3f176262bffdbb8e34587",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/918f52e818f7c56e90ec462ae90b230da244a7ed",
+                "reference": "918f52e818f7c56e90ec462ae90b230da244a7ed",
                 "shasum": ""
             },
             "require": {
@@ -455,7 +455,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-12-10T15:20:20+00:00"
+            "time": "2024-12-14T19:06:36+00:00"
         }
     ],
     "packages-dev": [],

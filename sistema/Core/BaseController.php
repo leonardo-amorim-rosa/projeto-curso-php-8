@@ -2,7 +2,7 @@
 
 namespace sistema\Core;
 
-use sistema\Suporte\Template;
+use sistema\Support\Template;
 
 /**
  * Description of Controlador

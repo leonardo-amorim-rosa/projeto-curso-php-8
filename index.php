@@ -1,8 +1,13 @@
 <?php
 
 require 'vendor/autoload.php';
-require 'rotas.php';
+//require 'rotas.php';
 
-//use sistema\Nucleo\DBConnection;
-//
-//$conn = DBConnection::getInstance();
+use sistema\Model\Post;
+
+$result = (new Post())->findAll();
+//var_dump($result);
+
+foreach ($result as $post) {
+    echo $post->title . '<hr>';
+}

@@ -1,6 +1,6 @@
 {
-    "name": "leoamorimrosa/blog",
-    "description": "Curso PHP 8 UnSet",
+    "name": "mx8sistemas/blog",
+    "description": "MX8 - Sistemas - Micro Framework",
     "type": "project",
     "autoload": {
         "psr-4": {

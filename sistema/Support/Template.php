@@ -1,6 +1,6 @@
 <?php
 
-namespace sistema\Suporte;
+namespace sistema\Support;
 
 use Twig\Lexer;
 use sistema\Core\Helpers;
