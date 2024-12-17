@@ -4,6 +4,7 @@ namespace sistema\Controllers;
 
 use sistema\Core\BaseController;
 use sistema\Model\Post;
+use sistema\Model\Category;
 use sistema\Core\Helpers;
 
 /**
@@ -22,7 +23,8 @@ class SiteController extends BaseController
     {
         echo $this->template->render('index.html', [
             'titulo' => 'Titulo teste',
-            'posts' => (new Post())->findAll()
+            'posts' => (new Post())->findAll(),
+            'categories' => (new Category())->findAll()
         ]);
     }
     
@@ -34,7 +36,8 @@ class SiteController extends BaseController
         }
         
         echo $this->template->render('post.html', [
-            'post' => $post
+            'post' => $post,
+            'categories' => (new Category())->findAll()
         ]);        
     }
     
