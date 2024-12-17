@@ -1,11 +1,11 @@
 <?php
 
-namespace sistema\Controllers;
+namespace mx8sistemas\Controllers;
 
-use sistema\Core\BaseController;
-use sistema\Model\Post;
-use sistema\Model\Category;
-use sistema\Core\Helpers;
+use mx8sistemas\Core\BaseController;
+use mx8sistemas\Model\Post;
+use mx8sistemas\Model\Category;
+use mx8sistemas\Core\Helpers;
 
 /**
  * Description of SiteController

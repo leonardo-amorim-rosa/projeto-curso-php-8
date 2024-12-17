@@ -4,10 +4,10 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "sistema\\": "sistema/"
+            "mx8sistemas\\": "mx8sistemas/"
         },
         "files": [
-            "sistema/config.php"
+            "mx8sistemas/config.php"
         ]
     },
     "authors": [

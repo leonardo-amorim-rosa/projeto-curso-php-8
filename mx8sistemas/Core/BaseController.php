@@ -1,8 +1,8 @@
 <?php
 
-namespace sistema\Core;
+namespace mx8sistemas\Core;
 
-use sistema\Support\Template;
+use mx8sistemas\Support\Template;
 
 /**
  * Description of Controlador

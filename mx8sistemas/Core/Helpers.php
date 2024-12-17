@@ -1,6 +1,6 @@
 <?php
 
-namespace sistema\Core;
+namespace mx8sistemas\Core;
 
 /**
  * Classe de métodos utilitários

@@ -1,10 +1,10 @@
 <?php
 
 use Pecee\SimpleRouter\SimpleRouter;
-use sistema\Core\Helpers;
+use mx8sistemas\Core\Helpers;
 
 try {
-    SimpleRouter::setDefaultNamespace('sistema\Controllers');
+    SimpleRouter::setDefaultNamespace('mx8sistemas\Controllers');
 
     SimpleRouter::get(URL_BASE, 'SiteController@index');
     SimpleRouter::get(URL_BASE.'sobre', 'SiteController@about');

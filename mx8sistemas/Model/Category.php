@@ -1,35 +1,35 @@
 <?php
 
-namespace sistema\Model;
+namespace mx8sistemas\Model;
 
-use sistema\Core\DBConnection;
+use mx8sistemas\Core\DBConnection;
 
 /**
- * Description of Post
+ * Description of Category
  *
  * @author leoam
  */
-class Post
+class Category
 {
     /**
-     * Find all posts in database
+     * Find all categories in database
      * @return array
      */
     public function findAll(): array
     {
-        $query = "SELECT * FROM posts ORDER BY id DESC";
+        $query = "SELECT * FROM categories ORDER BY title ASC";
         $stmt = DBConnection::getInstance()->query($query);
         return $stmt->fetchAll();
     }
     
     /**
-     * Find post by id
+     * Find category by id
      * @param int $id
      * @return type
      */
     public function findById(int $id): bool|object
     {
-        $query = "SELECT * FROM posts WHERE id = {$id}";
+        $query = "SELECT * FROM categories WHERE id = {$id}";
         $stmt = DBConnection::getInstance()->query($query);
         $result = $stmt->fetch();
         return $result;       

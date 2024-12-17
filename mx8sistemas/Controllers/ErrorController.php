@@ -1,8 +1,8 @@
 <?php
 
-namespace sistema\Controllers;
+namespace mx8sistemas\Controllers;
 
-use sistema\Core\BaseController;
+use mx8sistemas\Core\BaseController;
 
 /**
  * Description of ErrorController

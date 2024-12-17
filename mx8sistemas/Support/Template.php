@@ -1,9 +1,9 @@
 <?php
 
-namespace sistema\Support;
+namespace mx8sistemas\Support;
 
 use Twig\Lexer;
-use sistema\Core\Helpers;
+use mx8sistemas\Core\Helpers;
 
 /**
  * Description of Template

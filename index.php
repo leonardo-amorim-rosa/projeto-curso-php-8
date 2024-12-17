@@ -3,7 +3,7 @@
 require 'vendor/autoload.php';
 require 'routes.php';
 
-//use sistema\Model\Post;
+//use mx8sistemas\Model\Post;
 //
 //$result = (new Post())->findAll();
 ////var_dump($result);
