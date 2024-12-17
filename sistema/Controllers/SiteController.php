@@ -3,6 +3,8 @@
 namespace sistema\Controllers;
 
 use sistema\Core\BaseController;
+use sistema\Model\Post;
+use sistema\Core\Helpers;
 
 /**
  * Description of SiteController
@@ -20,8 +22,20 @@ class SiteController extends BaseController
     {
         echo $this->template->render('index.html', [
             'titulo' => 'Titulo teste',
-            'subtitulo' => 'subtitulo teste'
+            'posts' => (new Post())->findAll()
         ]);
+    }
+    
+    public function post(int $id): void
+    {
+        $post = (new Post())->findById($id);
+        if (!$post) {
+            Helpers::redirectTo('404');
+        }
+        
+        echo $this->template->render('post.html', [
+            'post' => $post
+        ]);        
     }
     
     public function about(): void

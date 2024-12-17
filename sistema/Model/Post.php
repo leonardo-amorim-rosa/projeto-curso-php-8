@@ -21,4 +21,17 @@ class Post
         $stmt = DBConnection::getInstance()->query($query);
         return $stmt->fetchAll();
     }
+    
+    /**
+     * Find post by id
+     * @param int $id
+     * @return type
+     */
+    public function findById(int $id): bool|object
+    {
+        $query = "SELECT * FROM posts WHERE id = {$id}";
+        $stmt = DBConnection::getInstance()->query($query);
+        $result = $stmt->fetch();
+        return $result;       
+    }
 }

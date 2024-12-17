@@ -2,9 +2,23 @@
 
 {% block conteudo %}
 
-<div class="container">
-    <h1>Index</h1>
-    <p>teste</p>
+<div class="container my-5">
+
+    <div class="row">
+        {% for post in posts %}
+        <div class="col-md-3">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="{{ url('post/'~post.id) }}">{{post.title}}</a>
+                    </h5>
+                    <p class="card-text">{{ resumirTexto(post.body, 150)}}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
 </div>
 
 {% endblock %}
