@@ -34,4 +34,17 @@ class Category
         $result = $stmt->fetch();
         return $result;       
     }
+    
+    /**
+     * Find posts from category
+     * @param int $categoryId
+     * @return array
+     */
+    public function findPostsByCategory(int $categoryId): array
+    {
+        $query = "SELECT * FROM posts WHERE category_id = {$categoryId} AND status = 1";
+        $stmt = DBConnection::getInstance()->query($query);
+        $result = $stmt->fetchAll();
+        return $result;               
+    }
 }

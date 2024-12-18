@@ -41,6 +41,16 @@ class SiteController extends BaseController
         ]);        
     }
     
+    public function categories(int $id): void
+    {
+        $posts = (new Category())->findPostsByCategory($id);
+        
+        echo $this->template->render('categories.html', [
+            'posts' => $posts,
+            'categories' => (new Category())->findAll()
+        ]);                
+    }
+    
     public function about(): void
     {
         echo $this->template->render('sobre.html', [

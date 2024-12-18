@@ -9,6 +9,7 @@ try {
     SimpleRouter::get(URL_BASE, 'SiteController@index');
     SimpleRouter::get(URL_BASE.'sobre', 'SiteController@about');
     SimpleRouter::get(URL_BASE.'post/{id}', 'SiteController@post');
+    SimpleRouter::get(URL_BASE.'categories/{id}', 'SiteController@categories');
 
     SimpleRouter::get('{URL_BASE}/404', 'ErrorController@erro404');
 
