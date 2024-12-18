@@ -10,8 +10,10 @@ try {
     SimpleRouter::get(URL_BASE.'sobre', 'SiteController@about');
     SimpleRouter::get(URL_BASE.'post/{id}', 'SiteController@post');
     SimpleRouter::get(URL_BASE.'categories/{id}', 'SiteController@categories');
+    SimpleRouter::post(URL_BASE.'search', 'SiteController@search');
+    SimpleRouter::post(URL_BASE.'searchAsync', 'SiteController@searchAsync');
 
-    SimpleRouter::get('{URL_BASE}/404', 'ErrorController@erro404');
+    SimpleRouter::get(URL_BASE.'404', 'ErrorController@erro404');
 
     SimpleRouter::start();
     

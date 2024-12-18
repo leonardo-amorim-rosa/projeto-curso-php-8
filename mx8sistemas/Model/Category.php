@@ -5,7 +5,7 @@ namespace mx8sistemas\Model;
 use mx8sistemas\Core\DBConnection;
 
 /**
- * Description of Category
+ * Category Model
  *
  * @author leoam
  */

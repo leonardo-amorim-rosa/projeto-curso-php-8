@@ -5,7 +5,7 @@ namespace mx8sistemas\Model;
 use mx8sistemas\Core\DBConnection;
 
 /**
- * Description of Post
+ * Post Model
  *
  * @author leoam
  */
@@ -33,5 +33,19 @@ class Post
         $stmt = DBConnection::getInstance()->query($query);
         $result = $stmt->fetch();
         return $result;       
+    }
+    
+    /**
+     * Search posts by partial text
+     * @param string $text
+     * @return array
+     */
+    public function search(string $text): array
+    {
+        $query = "SELECT * FROM posts WHERE status = 1 "
+                . "AND title LIKE '%{$text}%' ORDER BY id DESC";
+        $stmt = DBConnection::getInstance()->query($query);
+        $result = $stmt->fetchAll();
+        return $result;               
     }
 }
