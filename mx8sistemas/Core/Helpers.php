@@ -8,6 +8,7 @@ namespace mx8sistemas\Core;
  */
 class Helpers
 {
+
     /**
      * Redireciona para uma rota específica
      * @param string $url - a rota a ser redirecionada
@@ -16,14 +17,14 @@ class Helpers
     public static function redirectTo(string $url = null): void
     {
         header("HTTP/1.1 302 Found");
-        
+
         $local = ($url ? self::url($url) : self::url("/"));
-        
+
         header("Location: {$local}");
-        
+
         exit();
     }
-    
+
     /**
      * Valida CPF
      * @param string $cpf
@@ -116,6 +117,21 @@ class Helpers
     }
 
     /**
+     * Match selected url with browser url 
+     * @param string $url
+     * @return bool
+     */
+    public static function isUrl(string $url): bool
+    {
+        $uri = filter_input(INPUT_SERVER, 'REQUEST_URI');
+
+        if (str_ends_with($uri, $url)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Devolve o endereço completo de acordo com o ambiente e concatena a url
      * passada no parâmetro
      * @param string $url
@@ -145,10 +161,10 @@ class Helpers
         if (strlen($texto) > $limite) {
             return mb_substr($texto, 0, $limite) . '...';
         }
-        
+
         return $texto;
     }
-    
+
     /**
      * Verifica se o sistema está em ambiente de desenvolvimento
      * @return bool

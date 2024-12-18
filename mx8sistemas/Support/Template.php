@@ -39,6 +39,10 @@ class Template
                             return Helpers::url($url);
                         }));
 
+        $this->twig->addFunction(new \Twig\TwigFunction('isUrl', function (string $url) {
+                            return Helpers::isUrl($url);
+                        }));
+
         $this->twig->addFunction(new \Twig\TwigFunction('saudacao', function () {
                             return Helpers::saudacao();
                         }));
