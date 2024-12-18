@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'menu.html' %}
+
+<div class="content">
+    {% include 'header.html' %}
+    <main>
+        {% block parent_content %}  
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white border-0">
+                <h5 class="card-title">Dashboard</h5>
+            </div>
+            <div class="card-body">
+                Conteúdo em desenvolvimento
+            </div>
+        </div>
+        {% endblock %}
+    </main>
+    {% include 'footer.html' %}
+</div>
+
+{% endblock %}

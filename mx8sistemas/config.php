@@ -22,3 +22,4 @@ define('URL_PRODUCAO', 'http://mx8sistemas.com.br');
 define('URL_DESENVOLVIMENTO', 'http://localhost/blog');
 
 define('URL_BASE', 'blog/');
+define('DASHBOARD_BASE', 'blog/dashboard/');

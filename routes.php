@@ -14,11 +14,16 @@ try {
     SimpleRouter::post(URL_BASE.'searchAsync', 'SiteController@searchAsync');
 
     SimpleRouter::get(URL_BASE.'404', 'ErrorController@erro404');
-
+    
+    SimpleRouter::group(['namespace' => 'Dashboard'], function() {
+        SimpleRouter::get(DASHBOARD_BASE, 'DashboardController@index');
+        SimpleRouter::get(DASHBOARD_BASE.'posts', 'PostsController@index');
+        SimpleRouter::get(DASHBOARD_BASE.'categories', 'CategoriesController@index');
+    });
+    
     SimpleRouter::start();
     
 } catch (Pecee\SimpleRouter\Exceptions\NotFoundHttpException $ex) {
-
     if (Helpers::localhost()) {
         echo $ex;
     } else {
