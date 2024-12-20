@@ -1,0 +1,54 @@
+{% extends 'dashboard.html' %}
+
+{% block parent_content %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="{{ url('dashboard') }}">
+                Home
+            </a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+            Posts
+        </li>
+    </ol>
+</nav>
+<div class="card border-0 shadow-sm">
+    <div class="card-header bg-white border-0">
+        <h5 class="card-title">Posts</h5>
+    </div>
+    <div class="card-body">
+        <form action="{{ url('dashboard/posts/save') }}" method="post">
+            <div class="mb-3">
+                <label for="title" class="form-label">Título</label>
+                <input id="title" name="title" type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="body" class="form-label">Postagem</label>
+                <textarea id="body" name="body" class="form-control" rows="3"></textarea>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <select id="status" name="status" class="form-select">
+                            <option value="1">Ativo</option>
+                            <option value="0">Invativo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="categoryId" class="form-label">Categoria</label>
+                        <select id="categoryId" name="categoryId" class="form-select">
+                            <option value="1">Categoria 1</option>
+                            <option value="2">Categoria 2</option>
+                        </select>
+                    </div>                    
+                </div>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Cadastrar">
+        </form>
+    </div>
+</div>
+{% endblock %}

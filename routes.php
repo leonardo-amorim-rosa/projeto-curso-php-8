@@ -17,8 +17,18 @@ try {
     
     SimpleRouter::group(['namespace' => 'Dashboard'], function() {
         SimpleRouter::get(DASHBOARD_BASE, 'DashboardController@index');
+        
+        // ADMIN POSTS
         SimpleRouter::get(DASHBOARD_BASE.'posts', 'PostsController@index');
+//        SimpleRouter::match(['get', 'post'], DASHBOARD_BASE.'posts/cadastrar', 'PostsController@cadastrar');
+        SimpleRouter::get(DASHBOARD_BASE.'posts/form', 'PostsController@form');
+        SimpleRouter::post(DASHBOARD_BASE.'posts/save', 'PostsController@save');
+        
+        // ADMIN CATEGORIAS
         SimpleRouter::get(DASHBOARD_BASE.'categories', 'CategoriesController@index');
+//        SimpleRouter::match(['get', 'post'], DASHBOARD_BASE.'categories/cadastrar', 'CategoriesController@cadastrar');
+        SimpleRouter::get(DASHBOARD_BASE.'categories/form', 'CategoriesController@form');
+        SimpleRouter::post(DASHBOARD_BASE.'categories/save', 'CategoriesController@save');
     });
     
     SimpleRouter::start();

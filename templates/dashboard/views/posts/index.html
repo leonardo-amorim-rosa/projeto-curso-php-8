@@ -1,12 +1,43 @@
 {% extends 'dashboard.html' %}
 
 {% block parent_content %}  
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="{{ url('dashboard') }}">
+                Home
+            </a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+            Posts
+        </li>
+    </ol>
+</nav>
 <div class="card border-0 shadow-sm">
     <div class="card-header bg-white border-0">
-        <h5 class="card-title">Posts</h5>
+        <a href="{{ url('dashboard/posts/form') }}" class="btn btn-primary">Novo Post</a>
     </div>
     <div class="card-body">
-        Posts
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Título</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for post in posts %}
+                    <tr>
+                        <th scope="row">{{ post.id }}</th>
+                        <td>{{ post.title }}</td>
+                        <td>{{ post.status ? 'Ativo' : 'Inativo' }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 {% endblock %}
