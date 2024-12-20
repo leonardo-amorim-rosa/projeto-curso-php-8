@@ -22,17 +22,27 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Título</th>
-                        <th scope="col">Status</th>
+                        <th>Id</th>
+                        <th>Título</th>
+                        <th class="text-center">Status</th>
+                        <th class="text-center">Ação</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for category in categories %}
                     <tr>
-                        <th scope="row">{{ category.id }}</th>
+                        <th>{{ category.id }}</th>
                         <td>{{ category.title }}</td>
-                        <td>{{ category.status ? 'Ativo': 'Inativo' }}</td>
+                        <td class="text-center">
+                            {% if category.status == 1 %}
+                            <i class="fa-solid fa-circle text-success" tooltip="tooltip" title="Ativo" />
+                            {% else %}
+                            <i class="fa-solid fa-circle text-danger" tooltip="tooltip" title="Inativo" />
+                            {% endif %}
+                        </td>
+                        <td class="text-center">
+                            <a href="{{ url('dashboard/categories/edit/'~category.id) }}">Editar</a>
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>

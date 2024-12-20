@@ -17,7 +17,7 @@ class Category
      */
     public function findAll(): array
     {
-        $query = "SELECT * FROM categories ORDER BY title ASC";
+        $query = "SELECT * FROM categories ORDER BY id DESC";
         $stmt = DBConnection::getInstance()->query($query);
         return $stmt->fetchAll();
     }
@@ -59,4 +59,5 @@ class Category
         $stmt = DBConnection::getInstance()->prepare($query);
         $stmt->execute([$dados['title'], $dados['description'], $dados['status']]);
     }
+    
 }

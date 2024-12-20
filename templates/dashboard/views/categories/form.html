@@ -19,19 +19,31 @@
     </div>
     <div class="card-body">
         <form action="{{ url('dashboard/categories/save') }}" method="post">
+            <input type="hidden" name="id" value="{{ category.id }}"/>
             <div class="mb-3">
                 <label for="title" class="form-label">Título</label>
-                <input id="title" name="title" type="text" class="form-control">
+                <input id="title" name="title" type="text" class="form-control" 
+                       value="{{ category.title ? category.title : ''}}">
             </div>
             <div class="mb-3">
-                <label for="body" class="form-label">Descrição</label>
-                <textarea id="body" name="body" class="form-control" rows="3"></textarea>
+                <label for="description" class="form-label">Descrição</label>
+                <textarea id="description" name="description" 
+                          class="form-control" rows="3">{{ category.description ? category.description : ''}}
+                </textarea>
             </div>
             <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
                 <select id="status" name="status" class="form-select">
+                    {% if category.status == "1" %}
+                    <option value="1" selected>Ativo</option>
+                    <option value="0">Invativo</option>
+                    {% elseif category.status == "0" %}
+                    <option value="1">Ativo</option>
+                    <option value="0" selected>Invativo</option>
+                    {% else %}
                     <option value="1">Ativo</option>
                     <option value="0">Invativo</option>
+                    {% endif %}
                 </select>
             </div>
             <input type="submit" class="btn btn-primary" value="Cadastrar">

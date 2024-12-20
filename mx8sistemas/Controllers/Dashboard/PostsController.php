@@ -38,4 +38,14 @@ class PostsController extends BaseDashboardController
             Helpers::redirectTo('dashboard/posts');
         }
     }
+    
+    public function edit(int $id): void
+    {
+        $post = (new Post())->findById($id);
+        
+        echo $this->template->render('posts/form.html', [
+            'post' => $post,
+            "categories" => (new Category())->findAll()
+        ]);        
+    }    
 }

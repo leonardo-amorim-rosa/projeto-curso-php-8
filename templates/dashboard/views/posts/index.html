@@ -22,9 +22,10 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Título</th>
-                        <th scope="col">Status</th>
+                        <th>Id</th>
+                        <th>Título</th>
+                        <th class="text-center">Status</th>
+                        <th class="text-center">Ação</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,7 +33,16 @@
                     <tr>
                         <th scope="row">{{ post.id }}</th>
                         <td>{{ post.title }}</td>
-                        <td>{{ post.status ? 'Ativo' : 'Inativo' }}</td>
+                        <td class="text-center">
+                            {% if post.status == 1 %}
+                             <i class="fa-solid fa-circle text-success" tooltip="tooltip" title="Ativo" />
+                            {% else %}
+                            <i class="fa-solid fa-circle text-danger" tooltip="tooltip" title="Inativo" />
+                            {% endif %}
+                        </td>
+                        <td class="text-center">
+                            <a href="{{ url('dashboard/posts/edit/'~post.id) }}">Editar</a>
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>

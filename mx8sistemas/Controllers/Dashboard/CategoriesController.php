@@ -35,4 +35,13 @@ class CategoriesController extends BaseDashboardController
             Helpers::redirectTo('dashboard/categories');
         }
     }
+    
+    public function edit(int $id): void
+    {
+        $category = (new Category())->findById($id);
+        
+        echo $this->template->render('categories/form.html', [
+            'category' => $category
+        ]);        
+    }
 }

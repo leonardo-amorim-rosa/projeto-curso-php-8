@@ -19,21 +19,34 @@
     </div>
     <div class="card-body">
         <form action="{{ url('dashboard/posts/save') }}" method="post">
+            <input type="hidden" name="id" value="{{ post.id }}"/>
             <div class="mb-3">
                 <label for="title" class="form-label">Título</label>
-                <input id="title" name="title" type="text" class="form-control">
+                <input id="title" name="title" type="text" class="form-control" 
+                       value="{{ post.title ? post.title : '' }}">
             </div>
             <div class="mb-3">
                 <label for="body" class="form-label">Postagem</label>
-                <textarea id="body" name="body" class="form-control" rows="3"></textarea>
+                <textarea id="body" name="body" class="form-control" 
+                          rows="3">{{ post.body ? post.body : '' }}
+                </textarea>
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="status" class="form-label">Status</label>
                         <select id="status" name="status" class="form-select">
+                            {% if post.status == "1" %}
+                            <option value="1" selected>Ativo</option>
+                            <option value="0">Invativo</option>
+                            {% elseif post.status == "0" %}
+                            cai aqui
+                            <option value="1">Ativo</option>
+                            <option value="0" selected>Invativo</option>
+                            {% else %}
                             <option value="1">Ativo</option>
                             <option value="0">Invativo</option>
+                            {% endif %}
                         </select>
                     </div>
                 </div>
@@ -42,7 +55,11 @@
                         <label for="category_id" class="form-label">Categoria</label>
                         <select id="category_id" name="category_id" class="form-select">
                             {% for category in categories %}
-                            <option value="{{ category.id }}">{{ category.title }}</option>
+                                {% if post.category_id == category.id %}
+                                <option value="{{ category.id }}" selected>{{ category.title }}</option>
+                                {% else %}
+                                <option value="{{ category.id }}">{{ category.title }}</option>
+                                {% endif %}
                             {% endfor %}
                         </select>
                     </div>                    

@@ -23,12 +23,16 @@ try {
 //        SimpleRouter::match(['get', 'post'], DASHBOARD_BASE.'posts/cadastrar', 'PostsController@cadastrar');
         SimpleRouter::get(DASHBOARD_BASE.'posts/form', 'PostsController@form');
         SimpleRouter::post(DASHBOARD_BASE.'posts/save', 'PostsController@save');
+        SimpleRouter::get(DASHBOARD_BASE.'posts/edit/{id}', 'PostsController@edit');
+        SimpleRouter::post(DASHBOARD_BASE.'posts/{id}/update', 'PostsController@update');
         
         // ADMIN CATEGORIAS
         SimpleRouter::get(DASHBOARD_BASE.'categories', 'CategoriesController@index');
 //        SimpleRouter::match(['get', 'post'], DASHBOARD_BASE.'categories/cadastrar', 'CategoriesController@cadastrar');
         SimpleRouter::get(DASHBOARD_BASE.'categories/form', 'CategoriesController@form');
         SimpleRouter::post(DASHBOARD_BASE.'categories/save', 'CategoriesController@save');
+        SimpleRouter::get(DASHBOARD_BASE.'categories/edit/{id}', 'CategoriesController@edit');
+        SimpleRouter::post(DASHBOARD_BASE.'categories/{id}/update', 'CategoriesController@update');
     });
     
     SimpleRouter::start();
