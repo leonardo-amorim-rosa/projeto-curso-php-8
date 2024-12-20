@@ -3,6 +3,8 @@
 namespace mx8sistemas\Controllers\Dashboard;
 
 use mx8sistemas\Model\Post;
+use mx8sistemas\Model\Category;
+use mx8sistemas\Core\Helpers;
 
 /**
  * Description of PostsController
@@ -22,16 +24,18 @@ class PostsController extends BaseDashboardController
 
     public function form(): void
     {
-        echo $this->template->render('posts/form.html', []);
+        echo $this->template->render('posts/form.html', [
+            "categories" => (new Category())->findAll()
+        ]);
     }
 
     public function save(): void
     {
         $formData = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-        var_dump($formData);
 
         if (isset($formData)) {
-            echo 'Post salvo com sucesso!';
+            (new Post())->save($formData);
+            Helpers::redirectTo('dashboard/posts');
         }
     }
 }

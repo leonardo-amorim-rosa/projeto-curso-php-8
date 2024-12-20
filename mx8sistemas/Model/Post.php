@@ -48,4 +48,18 @@ class Post
         $result = $stmt->fetchAll();
         return $result;               
     }
+    
+    /**
+     * Save post in database
+     * @param array $dados
+     * @return void
+     */
+    public function save(array $dados): void
+    {
+        $query = "INSERT INTO posts (category_id, title, body, status)"
+                . " VALUES (:category_id, :title, :body, :status)";
+        $stmt = DBConnection::getInstance()->prepare($query);
+        $stmt->execute($dados);
+    }
+    
 }

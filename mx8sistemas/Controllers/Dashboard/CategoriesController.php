@@ -3,6 +3,7 @@
 namespace mx8sistemas\Controllers\Dashboard;
 
 use mx8sistemas\Model\Category;
+use mx8sistemas\Core\Helpers;
 
 /**
  * Description of CategoriesController
@@ -28,10 +29,10 @@ class CategoriesController extends BaseDashboardController
     public function save(): void
     {
         $formData = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-        var_dump($formData);
         
         if (isset($formData)) {
-            echo 'Categoria salva com sucesso!';
+            (new Category())->save($formData);
+            Helpers::redirectTo('dashboard/categories');
         }
     }
 }

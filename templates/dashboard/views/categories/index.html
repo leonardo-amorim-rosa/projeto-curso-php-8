@@ -24,6 +24,7 @@
                     <tr>
                         <th scope="col">Id</th>
                         <th scope="col">Título</th>
+                        <th scope="col">Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,6 +32,7 @@
                     <tr>
                         <th scope="row">{{ category.id }}</th>
                         <td>{{ category.title }}</td>
+                        <td>{{ category.status ? 'Ativo': 'Inativo' }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>

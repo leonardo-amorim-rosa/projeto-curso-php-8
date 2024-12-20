@@ -47,4 +47,16 @@ class Category
         $result = $stmt->fetchAll();
         return $result;               
     }
+    
+    /**
+     * Save category in database
+     * @param array $dados
+     * @return void
+     */
+    public function save(array $dados): void
+    {
+        $query = "INSERT INTO categories (title, description, status) VALUES (?, ?, ?)";
+        $stmt = DBConnection::getInstance()->prepare($query);
+        $stmt->execute([$dados['title'], $dados['description'], $dados['status']]);
+    }
 }

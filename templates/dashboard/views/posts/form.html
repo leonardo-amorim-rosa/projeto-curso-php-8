@@ -39,16 +39,16 @@
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label for="categoryId" class="form-label">Categoria</label>
-                        <select id="categoryId" name="categoryId" class="form-select">
-                            <option value="1">Categoria 1</option>
-                            <option value="2">Categoria 2</option>
+                        <label for="category_id" class="form-label">Categoria</label>
+                        <select id="category_id" name="category_id" class="form-select">
+                            {% for category in categories %}
+                            <option value="{{ category.id }}">{{ category.title }}</option>
+                            {% endfor %}
                         </select>
                     </div>                    
                 </div>
             </div>
             <input type="submit" class="btn btn-primary" value="Cadastrar">
         </form>
-    </div>
-</div>
+    </div></div>
 {% endblock %}
