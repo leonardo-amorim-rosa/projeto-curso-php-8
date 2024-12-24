@@ -71,5 +71,17 @@ class Category
                 . "WHERE id = :id";
         $stmt = DBConnection::getInstance()->prepare($query);
         $stmt->execute($data);
+    } 
+    
+    /**
+     * Delete a category in database
+     * @param int $id
+     * @return void
+     */
+    public function delete(int $id): void
+    {
+        $query = "DELETE FROM categories WHERE id = {$id}";
+        $stmt = DBConnection::getInstance()->prepare($query);
+        $stmt->execute();        
     }    
 }

@@ -55,4 +55,14 @@ class CategoriesController extends BaseDashboardController
             Helpers::redirectTo('dashboard/categories');
         }
     }
+    
+    public function delete(): void
+    {
+        $formData = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+        
+        if (isset($formData["id"])) {
+            (new Category())->delete($formData["id"]);
+            Helpers::redirectTo('dashboard/categories');            
+        }
+    }    
 }

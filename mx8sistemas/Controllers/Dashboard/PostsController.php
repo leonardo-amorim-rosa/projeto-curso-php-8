@@ -49,7 +49,7 @@ class PostsController extends BaseDashboardController
         ]);        
     } 
     
-    public function update(int $id)
+    public function update(int $id): void
     {
         $formData = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         
@@ -57,6 +57,16 @@ class PostsController extends BaseDashboardController
             $formData["id"] = $id;
             (new Post())->update($formData);
             Helpers::redirectTo('dashboard/posts');
+        }
+    }
+    
+    public function delete(): void
+    {
+        $formData = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+        
+        if (isset($formData["id"])) {
+            (new Post())->delete($formData["id"]);
+            Helpers::redirectTo('dashboard/posts');            
         }
     }
 }

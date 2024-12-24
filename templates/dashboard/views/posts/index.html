@@ -40,8 +40,19 @@
                             <i class="fa-solid fa-circle text-danger" tooltip="tooltip" title="Inativo" />
                             {% endif %}
                         </td>
-                        <td class="text-center">
-                            <a href="{{ url('dashboard/posts/edit/'~post.id) }}">Editar</a>
+                        <td>
+                            <div class="row justify-content-md-center">
+                                <div class="col-md-auto">
+                                    <a class="btn btn-warning" href="{{ url('dashboard/posts/edit/'~post.id) }}">Editar</a>
+                                </div>
+                                <div class="col-md-auto">
+                                    <form action="{{ url('dashboard/posts/delete') }}" method="POST">
+                                        <input type="hidden" name="id" value="{{post.id}}" />
+                                        <input type="submit" class="btn btn-danger" 
+                                               onclick="return confirm('Tem certeza de que deseja excluir esse post?')" value="Excluir"/>
+                                    </form>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                     {% endfor %}

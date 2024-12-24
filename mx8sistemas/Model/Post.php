@@ -74,4 +74,16 @@ class Post
         $stmt = DBConnection::getInstance()->prepare($query);
         $stmt->execute($data);
     }
+    
+    /**
+     * Delete a post in database
+     * @param int $id
+     * @return void
+     */
+    public function delete(int $id): void
+    {
+        $query = "DELETE FROM posts WHERE id = {$id}";
+        $stmt = DBConnection::getInstance()->prepare($query);
+        $stmt->execute();        
+    }
 }
