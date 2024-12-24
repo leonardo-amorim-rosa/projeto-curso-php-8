@@ -18,7 +18,8 @@
         <h5 class="card-title">Posts</h5>
     </div>
     <div class="card-body">
-        <form action="{{ url('dashboard/posts/save') }}" method="post">
+        <form action="{% if post.id %}{{ url('dashboard/posts/update/'~post.id) }}{% else %}{{ url('dashboard/posts/save') }}{% endif %}" 
+              method="post">
             <input type="hidden" name="id" value="{{ post.id }}"/>
             <div class="mb-3">
                 <label for="title" class="form-label">Título</label>
@@ -36,17 +37,8 @@
                     <div class="mb-3">
                         <label for="status" class="form-label">Status</label>
                         <select id="status" name="status" class="form-select">
-                            {% if post.status == "1" %}
-                            <option value="1" selected>Ativo</option>
-                            <option value="0">Invativo</option>
-                            {% elseif post.status == "0" %}
-                            cai aqui
-                            <option value="1">Ativo</option>
-                            <option value="0" selected>Invativo</option>
-                            {% else %}
-                            <option value="1">Ativo</option>
-                            <option value="0">Invativo</option>
-                            {% endif %}
+                            <option value="1" {% if post.status == "1" %}selected{% endif %}>Ativo</option>
+                            <option value="0" {% if post.status == "0" %}selected{% endif %}>Invativo</option>
                         </select>
                     </div>
                 </div>
@@ -55,17 +47,14 @@
                         <label for="category_id" class="form-label">Categoria</label>
                         <select id="category_id" name="category_id" class="form-select">
                             {% for category in categories %}
-                                {% if post.category_id == category.id %}
-                                <option value="{{ category.id }}" selected>{{ category.title }}</option>
-                                {% else %}
-                                <option value="{{ category.id }}">{{ category.title }}</option>
-                                {% endif %}
+                                <option value="{{ category.id }}" {% if post.category_id == category.id %}selected{% endif %}>{{ category.title }}</option>
                             {% endfor %}
                         </select>
                     </div>                    
                 </div>
             </div>
-            <input type="submit" class="btn btn-primary" value="Cadastrar">
+            <input type="submit" class="btn btn-primary" 
+                   value="{% if post.id %}Atualizar{% else %}Cadastrar{% endif %}">
         </form>
     </div></div>
 {% endblock %}

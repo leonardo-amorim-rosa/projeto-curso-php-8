@@ -44,4 +44,15 @@ class CategoriesController extends BaseDashboardController
             'category' => $category
         ]);        
     }
+    
+    public function update(int $id)
+    {
+        $formData = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+        
+        if (isset($formData)) {
+            $formData["id"] = $id;
+            (new Category())->update($formData);
+            Helpers::redirectTo('dashboard/categories');
+        }
+    }
 }

@@ -47,5 +47,16 @@ class PostsController extends BaseDashboardController
             'post' => $post,
             "categories" => (new Category())->findAll()
         ]);        
-    }    
+    } 
+    
+    public function update(int $id)
+    {
+        $formData = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+        
+        if (isset($formData)) {
+            $formData["id"] = $id;
+            (new Post())->update($formData);
+            Helpers::redirectTo('dashboard/posts');
+        }
+    }
 }

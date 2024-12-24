@@ -18,7 +18,8 @@
         <h5 class="card-title">Categorias</h5>
     </div>
     <div class="card-body">
-        <form action="{{ url('dashboard/categories/save') }}" method="post">
+        <form action="{% if category.id %}{{ url('dashboard/categories/update/'~category.id) }}{% else %}{{ url('dashboard/categories/save') }}{% endif %}" 
+              method="post">
             <input type="hidden" name="id" value="{{ category.id }}"/>
             <div class="mb-3">
                 <label for="title" class="form-label">Título</label>
@@ -34,19 +35,12 @@
             <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
                 <select id="status" name="status" class="form-select">
-                    {% if category.status == "1" %}
-                    <option value="1" selected>Ativo</option>
-                    <option value="0">Invativo</option>
-                    {% elseif category.status == "0" %}
-                    <option value="1">Ativo</option>
-                    <option value="0" selected>Invativo</option>
-                    {% else %}
-                    <option value="1">Ativo</option>
-                    <option value="0">Invativo</option>
-                    {% endif %}
+                    <option value="1" {% if category.status == "1" %}selected{% endif %}>Ativo</option>
+                    <option value="0" {% if category.status == "0" %}selected{% endif %}>Invativo</option>
                 </select>
             </div>
-            <input type="submit" class="btn btn-primary" value="Cadastrar">
+            <input type="submit" class="btn btn-primary" 
+                   value="{% if category.id %}Atualizar{% else %}Cadastrar{% endif %}">
         </form>
     </div>
 </div>

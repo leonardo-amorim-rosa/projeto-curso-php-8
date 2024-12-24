@@ -62,4 +62,16 @@ class Post
         $stmt->execute($dados);
     }
     
+    /**
+     * Update post in database
+     * @param array $data
+     * @return void
+     */
+    public function update(array $data): void
+    {
+        $query = "UPDATE posts SET title = :title, body = :body, status = :status, "
+                . "category_id = :category_id WHERE id = :id";
+        $stmt = DBConnection::getInstance()->prepare($query);
+        $stmt->execute($data);
+    }
 }

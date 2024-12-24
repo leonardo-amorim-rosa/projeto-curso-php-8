@@ -60,4 +60,16 @@ class Category
         $stmt->execute([$dados['title'], $dados['description'], $dados['status']]);
     }
     
+    /**
+     * Update category in database
+     * @param array $data
+     * @return void
+     */
+    public function update(array $data): void
+    {
+        $query = "UPDATE categories SET title = :title, description = :description, status = :status "
+                . "WHERE id = :id";
+        $stmt = DBConnection::getInstance()->prepare($query);
+        $stmt->execute($data);
+    }    
 }
