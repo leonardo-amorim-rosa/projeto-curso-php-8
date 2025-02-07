@@ -16,9 +16,9 @@ class AlertMessage
     /**
      * Cria uma mensagem de sucesso
      * @param string $mensagem
-     * @return Mensagem
+     * @return AlertMessage
      */
-    public function success(string $mensagem): Mensagem
+    public function success(string $mensagem): AlertMessage
     {
         $this->css = 'alert alert-success';
         $this->texto = $this->filter($mensagem);
@@ -28,9 +28,9 @@ class AlertMessage
     /**
      * Cria uma mensagem de erro
      * @param string $mensagem
-     * @return Mensagem
+     * @return AlertMessage
      */    
-    public function error(string $mensagem): Mensagem
+    public function error(string $mensagem): AlertMessage
     {
         $this->css = 'alert alert-danger';
         $this->texto = $this->filter($mensagem);
@@ -40,9 +40,9 @@ class AlertMessage
     /**
      * Cria uma mensagem de alerta
      * @param string $mensagem
-     * @return Mensagem
+     * @return AlertMessage
      */    
-    public function warning(string $mensagem): Mensagem
+    public function warning(string $mensagem): AlertMessage
     {
         $this->css = 'alert alert-warning';
         $this->texto = $this->filter($mensagem);
@@ -52,9 +52,9 @@ class AlertMessage
     /**
      * Cria uma mensagem de informação
      * @param string $mensagem
-     * @return Mensagem
+     * @return AlertMessage
      */    
-    public function info(string $mensagem): Mensagem
+    public function info(string $mensagem): AlertMessage
     {
         $this->css = 'alert alert-primary';
         $this->texto = $this->filter($mensagem);

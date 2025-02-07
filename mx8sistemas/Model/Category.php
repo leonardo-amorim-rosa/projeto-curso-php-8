@@ -25,7 +25,7 @@ class Category
     /**
      * Find category by id
      * @param int $id
-     * @return type
+     * @return bool|object
      */
     public function findById(int $id): bool|object
     {
